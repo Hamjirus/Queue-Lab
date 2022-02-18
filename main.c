@@ -23,8 +23,13 @@ int main(int argc, const char * argv[]) {
     
     for(i=1;i<argc;i++){
         if(strcmp(argv[i],"x")==0){
-          dequeue(&Q,&ord_num,&ord_qty);
-          menu(ord_num,ord_qty);
+          if(Q.size>0){
+            dequeue(&Q,&ord_num,&ord_qty);
+            menu(ord_num,ord_qty);
+          }
+          else{
+            printf("\nOut of menu\n");
+          }
         }
         else {
           int temp_ord = atoi(argv[i]);
